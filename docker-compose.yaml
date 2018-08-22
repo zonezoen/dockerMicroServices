@@ -1,0 +1,96 @@
+version: '2'
+services:
+  # consul server，对外暴露的ui接口为8500，只有在2台consul服务器的情况下集群才起作用
+  consulserver:
+    image: progrium/consul:latest
+    hostname: consulserver
+    ports:
+      - "8300"
+      - "8400"
+      - "8500:8500"
+      - "53"
+    command: -server -ui-dir /ui -data-dir /tmp/consul --bootstrap-expect=2
+    networks:
+      - app
+
+  # consul server1在consul server服务起来后，加入集群中
+  consulserver1:
+    image: progrium/consul:latest
+    hostname: consulserver1
+    depends_on:
+      - "consulserver"
+    ports:
+      - "8300"
+      - "8400"
+      - "8500"
+      - "53"
+    command: -server -data-dir /tmp/consul -join consulserver
+    networks:
+      - app
+  # consul server2在consul server服务起来后，加入集群中
+  consulserver2:
+    image: progrium/consul:latest
+    hostname: consulserver2
+    depends_on:
+      - "consulserver"
+    ports:
+      - "8300"
+      - "8400"
+      - "8500"
+      - "53"
+    command: -server -data-dir /tmp/consul -join consulserver
+    networks:
+      - app
+  # 监听容器中暴露的端口，一定有新的端口，注册到注册中心
+  registrator:
+    image: gliderlabs/registrator:master
+    hostname: registrator
+    depends_on:
+      - "consulserver"
+    volumes:
+      - "/var/run/docker.sock:/tmp/docker.sock"
+    command: -internal consul://consulserver:8500
+    networks:
+      - app
+  web-nodejs:
+    build: ./webNodejs
+    image: webapp:latest
+    depends_on:
+      - "consulserver"
+    ports:
+      - "3000"
+    environment:
+      SERVICE_3000_NAME: service-web
+    networks:
+      - app
+
+  web-py:
+    build: ./webPy
+    image: webpy:latest
+#    depends_on:
+#      - "consulserver"
+    ports:
+      - "5000:5000"
+    environment:
+      SERVICE_5000_NAME: service-web-py
+    volumes:
+      - ./webPy:/usr/local/work
+    networks:
+      - app
+    command: bash -c "pip install -r requirements.txt && python app.py"
+
+  gateway-nodejs:
+    build: ./gateWayJs
+    image: gatewayjs:latest
+    ports:
+      - "3000:3000"
+    environment:
+      SERVICE_3000_NAME: service-gateway
+
+    networks:
+      - app
+
+networks:
+  app:
+    driver: bridge
+
