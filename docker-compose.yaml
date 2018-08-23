@@ -70,11 +70,26 @@ services:
 #    depends_on:
 #      - "consulserver"
     ports:
-      - "5000:5000"
+      - "5000"
     environment:
       SERVICE_5000_NAME: service-web-py
     volumes:
       - ./webPy:/usr/local/work
+    networks:
+      - app
+    command: bash -c "pip install -r requirements.txt && python app.py"
+
+  gateway-py:
+    build: ./gateWayPy
+    image: gatewaypy:latest
+#    depends_on:
+#      - "consulserver"
+    ports:
+      - "5000:5000"
+    environment:
+      SERVICE_5000_NAME: service-gateway-py
+    volumes:
+      - ./gateWayPy:/usr/local/work
     networks:
       - app
     command: bash -c "pip install -r requirements.txt && python app.py"
@@ -85,7 +100,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      SERVICE_3000_NAME: service-gateway
+      SERVICE_3000_NAME: service-gateway-js
 
     networks:
       - app

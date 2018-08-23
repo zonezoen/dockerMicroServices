@@ -5,6 +5,7 @@ const request = require('superagent');
 
 router.get('/service-web/', async(ctx, next) => {
     const host = await getServiceHost('service-web');
+    
     const fetchUrl = `http://${host}/`;
     const result = await request.get(fetchUrl);
     console.log(`getRemoteIp:${result.text}`);
