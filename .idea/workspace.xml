@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="661fd8e1-ef37-497f-bd03-a1fad49cd806" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/dockerMicroServices.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/gateWayPy/app.py" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" afterPath="$PROJECT_DIR$/docker-compose.yaml" />
-      <change beforePath="$PROJECT_DIR$/gateWayJs/router.js" afterPath="$PROJECT_DIR$/gateWayJs/router.js" />
-      <change beforePath="$PROJECT_DIR$/gateWayPy/remove.sh" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/remove.sh" afterPath="$PROJECT_DIR$/remove.sh" />
-      <change beforePath="$PROJECT_DIR$/webPy/.idea/workspace.xml" afterPath="$PROJECT_DIR$/webPy/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/webPy/app.py" afterPath="$PROJECT_DIR$/webPy/app.py" />
+      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -58,12 +48,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="watch.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="watch.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gateWayJs/watch.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="41" column="38" lean-forward="false" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="38" />
+            <state relative-caret-position="39">
+              <caret line="21" column="20" lean-forward="true" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="45">
+                <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -111,8 +114,8 @@
       <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gateWayPy/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="30" column="14" lean-forward="false" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
+            <state relative-caret-position="284">
+              <caret line="36" column="14" lean-forward="false" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -163,6 +166,7 @@
         <option value="$PROJECT_DIR$/docker-compose.yaml" />
         <option value="$PROJECT_DIR$/remove.sh" />
         <option value="$PROJECT_DIR$/webPy/app.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -189,8 +193,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="59" />
-    <option name="y" value="23" />
+    <option name="x" value="-1775" />
+    <option name="y" value="134" />
     <option name="width" value="1440" />
     <option name="height" value="877" />
   </component>
@@ -328,15 +332,15 @@
       <workItem from="1534868453129" duration="2087000" />
       <workItem from="1534901235282" duration="3499000" />
       <workItem from="1534988038049" duration="5343000" />
-      <workItem from="1535003725469" duration="2415000" />
+      <workItem from="1535003725469" duration="3225000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25857000" />
+    <option name="totallyTimeSpent" value="26667000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="59" y="23" width="1440" height="877" extended-state="0" />
+    <frame x="-1775" y="134" width="1440" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25651866" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -544,8 +548,8 @@
     <entry file="file://$PROJECT_DIR$/../docker-compose/docker-compose.yaml" />
     <entry file="file://$PROJECT_DIR$/gateWayPy/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="30" column="14" lean-forward="false" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
+        <state relative-caret-position="284">
+          <caret line="36" column="14" lean-forward="false" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
           <folding />
         </state>
       </provider>
@@ -616,9 +620,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gateWayJs/watch.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="41" column="38" lean-forward="false" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="38" />
+        <state relative-caret-position="39">
+          <caret line="21" column="20" lean-forward="true" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="45">
+            <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
