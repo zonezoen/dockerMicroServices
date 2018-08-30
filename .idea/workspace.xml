@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="661fd8e1-ef37-497f-bd03-a1fad49cd806" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/moudel/moudelPost/thrift/postServices.thrift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/moudel/moudelUser/thrift/userServices.thrift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/moudel/moudelUser/api/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/moudel/moudelUser/api/server.py" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -28,21 +25,26 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="44" />
+          <entry key="py" value="120" />
+          <entry key="sh" value="83" />
+          <entry key="thrift" value="119" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="44" />
+          <entry key="PLAIN_TEXT" value="202" />
+          <entry key="Python" value="120" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="py" value="1" />
+          <entry key="sh" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="PLAIN_TEXT" value="3" />
           <entry key="Python" value="1" />
         </counts>
       </usages-collector>
@@ -51,28 +53,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gateWayJs/discovery.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="705">
-              <caret line="47" selection-start-line="47" selection-end-line="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gateWayJs/watch.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="27" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/moudel/moudelPost/thrift/postServices.thrift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+            <state relative-caret-position="90">
+              <caret line="6" column="67" selection-start-line="6" selection-start-column="67" selection-end-line="6" selection-end-column="67" />
             </state>
           </provider>
         </entry>
@@ -90,13 +74,31 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/moudel/moudelUser/api/server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="20" lean-forward="true" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+            <state relative-caret-position="345">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
               <folding>
                 <element signature="e#0#54#0" expanded="true" />
-                <marker date="1535628522000" expanded="true" signature="402:411" ph="..." />
-                <marker date="1535628522000" expanded="true" signature="455:464" ph="..." />
+                <marker date="1535630463000" expanded="true" signature="476:485" ph="..." />
+                <marker date="1535630463000" expanded="true" signature="532:541" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/crtThrift.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="45" lean-forward="true" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/remove.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -104,8 +106,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/moudel/moudelUser/thrift/userServices.thrift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="56" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="56" />
+            <state relative-caret-position="105">
+              <caret line="7" column="89" selection-start-line="7" selection-start-column="89" selection-end-line="7" selection-end-column="89" />
             </state>
           </provider>
         </entry>
@@ -170,9 +172,10 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/webPy/app.py" />
         <option value="$PROJECT_DIR$/moudel/moudelPost/thrift/userServices.thrift" />
+        <option value="$PROJECT_DIR$/moudel/moudelPost/nodejs/postApi.js" />
+        <option value="$PROJECT_DIR$/crtThrift.sh" />
         <option value="$PROJECT_DIR$/moudel/moudelUser/thrift/userServices.thrift" />
         <option value="$PROJECT_DIR$/moudel/moudelPost/thrift/postServices.thrift" />
-        <option value="$PROJECT_DIR$/moudel/moudelPost/nodejs/postApi.js" />
         <option value="$PROJECT_DIR$/moudel/moudelUser/api/server.py" />
       </list>
     </option>
@@ -247,6 +250,23 @@
             <path>
               <item name="dockerMicroServices" type="b2602c69:ProjectViewProjectNode" />
               <item name="dockerMicroServices" type="462c0819:PsiDirectoryNode" />
+              <item name="gateWayJs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dockerMicroServices" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dockerMicroServices" type="462c0819:PsiDirectoryNode" />
+              <item name="gateWayJs" type="462c0819:PsiDirectoryNode" />
+              <item name="moudelPost" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dockerMicroServices" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dockerMicroServices" type="462c0819:PsiDirectoryNode" />
+              <item name="gateWayJs" type="462c0819:PsiDirectoryNode" />
+              <item name="moudelUser" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dockerMicroServices" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dockerMicroServices" type="462c0819:PsiDirectoryNode" />
               <item name="moudel" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -266,29 +286,14 @@
               <item name="dockerMicroServices" type="b2602c69:ProjectViewProjectNode" />
               <item name="dockerMicroServices" type="462c0819:PsiDirectoryNode" />
               <item name="moudel" type="462c0819:PsiDirectoryNode" />
-              <item name="moudelUser" type="462c0819:PsiDirectoryNode" />
+              <item name="moudelPost" type="462c0819:PsiDirectoryNode" />
+              <item name="thrift" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dockerMicroServices" type="b2602c69:ProjectViewProjectNode" />
               <item name="dockerMicroServices" type="462c0819:PsiDirectoryNode" />
               <item name="moudel" type="462c0819:PsiDirectoryNode" />
               <item name="moudelUser" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dockerMicroServices" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dockerMicroServices" type="462c0819:PsiDirectoryNode" />
-              <item name="moudel" type="462c0819:PsiDirectoryNode" />
-              <item name="moudelUser" type="462c0819:PsiDirectoryNode" />
-              <item name="python" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dockerMicroServices" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dockerMicroServices" type="462c0819:PsiDirectoryNode" />
-              <item name="moudel" type="462c0819:PsiDirectoryNode" />
-              <item name="moudelUser" type="462c0819:PsiDirectoryNode" />
-              <item name="python" type="462c0819:PsiDirectoryNode" />
-              <item name="userServices" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dockerMicroServices" type="b2602c69:ProjectViewProjectNode" />
@@ -428,7 +433,7 @@
     <frame x="-1920" y="0" width="1920" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18104367" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18104367" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -441,7 +446,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.31782177" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.31782177" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -500,13 +505,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/remove.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="39" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webNodejs/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -535,13 +533,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/moudel/moudelPost/thrift/postServices.thrift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/moudel/moudelPost/nodejs/postApi.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -562,24 +553,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/moudel/moudelUser/thrift/userServices.thrift">
+    <entry file="file://$PROJECT_DIR$/remove.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="56" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="56" />
+        <state>
+          <caret selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/moudel/moudelPost/thrift/postServices.thrift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="67" selection-start-line="6" selection-start-column="67" selection-end-line="6" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crtThrift.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="45" lean-forward="true" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/moudel/moudelUser/python/userApi.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/moudel/moudelUser/thrift/userServices.thrift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="89" selection-start-line="7" selection-start-column="89" selection-end-line="7" selection-end-column="89" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/moudel/moudelUser/api/server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="20" lean-forward="true" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+        <state relative-caret-position="345">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
           <folding>
             <element signature="e#0#54#0" expanded="true" />
-            <marker date="1535628522000" expanded="true" signature="402:411" ph="..." />
-            <marker date="1535628522000" expanded="true" signature="455:464" ph="..." />
+            <marker date="1535630463000" expanded="true" signature="476:485" ph="..." />
+            <marker date="1535630463000" expanded="true" signature="532:541" ph="..." />
           </folding>
         </state>
       </provider>
