@@ -10,27 +10,31 @@ var Thrift = thrift.Thrift;
 var Q = thrift.Q;
 
 
-var ttypes = require('./postServices_types');
+var ttypes = require('./userServices_types');
 //HELPER FUNCTIONS AND STRUCTURES
 
-var PostService_addPost_args = function(args) {
-  this.title = null;
-  this.content = null;
-  this.tag = null;
+var UserService_registUser_args = function(args) {
+  this.username = null;
+  this.password = null;
+  this.sex = null;
+  this.age = null;
   if (args) {
-    if (args.title !== undefined && args.title !== null) {
-      this.title = args.title;
+    if (args.username !== undefined && args.username !== null) {
+      this.username = args.username;
     }
-    if (args.content !== undefined && args.content !== null) {
-      this.content = args.content;
+    if (args.password !== undefined && args.password !== null) {
+      this.password = args.password;
     }
-    if (args.tag !== undefined && args.tag !== null) {
-      this.tag = args.tag;
+    if (args.sex !== undefined && args.sex !== null) {
+      this.sex = args.sex;
+    }
+    if (args.age !== undefined && args.age !== null) {
+      this.age = args.age;
     }
   }
 };
-PostService_addPost_args.prototype = {};
-PostService_addPost_args.prototype.read = function(input) {
+UserService_registUser_args.prototype = {};
+UserService_registUser_args.prototype.read = function(input) {
   input.readStructBegin();
   while (true)
   {
@@ -45,21 +49,28 @@ PostService_addPost_args.prototype.read = function(input) {
     {
       case 1:
       if (ftype == Thrift.Type.STRING) {
-        this.title = input.readString();
+        this.username = input.readString();
       } else {
         input.skip(ftype);
       }
       break;
       case 2:
       if (ftype == Thrift.Type.STRING) {
-        this.content = input.readString();
+        this.password = input.readString();
       } else {
         input.skip(ftype);
       }
       break;
       case 3:
       if (ftype == Thrift.Type.STRING) {
-        this.tag = input.readString();
+        this.sex = input.readString();
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      case 4:
+      if (ftype == Thrift.Type.STRING) {
+        this.age = input.readString();
       } else {
         input.skip(ftype);
       }
@@ -73,21 +84,26 @@ PostService_addPost_args.prototype.read = function(input) {
   return;
 };
 
-PostService_addPost_args.prototype.write = function(output) {
-  output.writeStructBegin('PostService_addPost_args');
-  if (this.title !== null && this.title !== undefined) {
-    output.writeFieldBegin('title', Thrift.Type.STRING, 1);
-    output.writeString(this.title);
+UserService_registUser_args.prototype.write = function(output) {
+  output.writeStructBegin('UserService_registUser_args');
+  if (this.username !== null && this.username !== undefined) {
+    output.writeFieldBegin('username', Thrift.Type.STRING, 1);
+    output.writeString(this.username);
     output.writeFieldEnd();
   }
-  if (this.content !== null && this.content !== undefined) {
-    output.writeFieldBegin('content', Thrift.Type.STRING, 2);
-    output.writeString(this.content);
+  if (this.password !== null && this.password !== undefined) {
+    output.writeFieldBegin('password', Thrift.Type.STRING, 2);
+    output.writeString(this.password);
     output.writeFieldEnd();
   }
-  if (this.tag !== null && this.tag !== undefined) {
-    output.writeFieldBegin('tag', Thrift.Type.STRING, 3);
-    output.writeString(this.tag);
+  if (this.sex !== null && this.sex !== undefined) {
+    output.writeFieldBegin('sex', Thrift.Type.STRING, 3);
+    output.writeString(this.sex);
+    output.writeFieldEnd();
+  }
+  if (this.age !== null && this.age !== undefined) {
+    output.writeFieldBegin('age', Thrift.Type.STRING, 4);
+    output.writeString(this.age);
     output.writeFieldEnd();
   }
   output.writeFieldStop();
@@ -95,10 +111,10 @@ PostService_addPost_args.prototype.write = function(output) {
   return;
 };
 
-var PostService_addPost_result = function(args) {
+var UserService_registUser_result = function(args) {
 };
-PostService_addPost_result.prototype = {};
-PostService_addPost_result.prototype.read = function(input) {
+UserService_registUser_result.prototype = {};
+UserService_registUser_result.prototype.read = function(input) {
   input.readStructBegin();
   while (true)
   {
@@ -116,23 +132,27 @@ PostService_addPost_result.prototype.read = function(input) {
   return;
 };
 
-PostService_addPost_result.prototype.write = function(output) {
-  output.writeStructBegin('PostService_addPost_result');
+UserService_registUser_result.prototype.write = function(output) {
+  output.writeStructBegin('UserService_registUser_result');
   output.writeFieldStop();
   output.writeStructEnd();
   return;
 };
 
-var PostService_getPost_args = function(args) {
-  this.title = null;
+var UserService_login_args = function(args) {
+  this.username = null;
+  this.password = null;
   if (args) {
-    if (args.title !== undefined && args.title !== null) {
-      this.title = args.title;
+    if (args.username !== undefined && args.username !== null) {
+      this.username = args.username;
+    }
+    if (args.password !== undefined && args.password !== null) {
+      this.password = args.password;
     }
   }
 };
-PostService_getPost_args.prototype = {};
-PostService_getPost_args.prototype.read = function(input) {
+UserService_login_args.prototype = {};
+UserService_login_args.prototype.read = function(input) {
   input.readStructBegin();
   while (true)
   {
@@ -147,14 +167,18 @@ PostService_getPost_args.prototype.read = function(input) {
     {
       case 1:
       if (ftype == Thrift.Type.STRING) {
-        this.title = input.readString();
+        this.username = input.readString();
       } else {
         input.skip(ftype);
       }
       break;
-      case 0:
+      case 2:
+      if (ftype == Thrift.Type.STRING) {
+        this.password = input.readString();
+      } else {
         input.skip(ftype);
-        break;
+      }
+      break;
       default:
         input.skip(ftype);
     }
@@ -164,11 +188,16 @@ PostService_getPost_args.prototype.read = function(input) {
   return;
 };
 
-PostService_getPost_args.prototype.write = function(output) {
-  output.writeStructBegin('PostService_getPost_args');
-  if (this.title !== null && this.title !== undefined) {
-    output.writeFieldBegin('title', Thrift.Type.STRING, 1);
-    output.writeString(this.title);
+UserService_login_args.prototype.write = function(output) {
+  output.writeStructBegin('UserService_login_args');
+  if (this.username !== null && this.username !== undefined) {
+    output.writeFieldBegin('username', Thrift.Type.STRING, 1);
+    output.writeString(this.username);
+    output.writeFieldEnd();
+  }
+  if (this.password !== null && this.password !== undefined) {
+    output.writeFieldBegin('password', Thrift.Type.STRING, 2);
+    output.writeString(this.password);
     output.writeFieldEnd();
   }
   output.writeFieldStop();
@@ -176,16 +205,16 @@ PostService_getPost_args.prototype.write = function(output) {
   return;
 };
 
-var PostService_getPost_result = function(args) {
+var UserService_login_result = function(args) {
   this.success = null;
   if (args) {
     if (args.success !== undefined && args.success !== null) {
-      this.success = new ttypes.Post(args.success);
+      this.success = new ttypes.User(args.success);
     }
   }
 };
-PostService_getPost_result.prototype = {};
-PostService_getPost_result.prototype.read = function(input) {
+UserService_login_result.prototype = {};
+UserService_login_result.prototype.read = function(input) {
   input.readStructBegin();
   while (true)
   {
@@ -200,7 +229,7 @@ PostService_getPost_result.prototype.read = function(input) {
     {
       case 0:
       if (ftype == Thrift.Type.STRUCT) {
-        this.success = new ttypes.Post();
+        this.success = new ttypes.User();
         this.success.read(input);
       } else {
         input.skip(ftype);
@@ -218,8 +247,8 @@ PostService_getPost_result.prototype.read = function(input) {
   return;
 };
 
-PostService_getPost_result.prototype.write = function(output) {
-  output.writeStructBegin('PostService_getPost_result');
+UserService_login_result.prototype.write = function(output) {
+  output.writeStructBegin('UserService_login_result');
   if (this.success !== null && this.success !== undefined) {
     output.writeFieldBegin('success', Thrift.Type.STRUCT, 0);
     this.success.write(output);
@@ -230,16 +259,16 @@ PostService_getPost_result.prototype.write = function(output) {
   return;
 };
 
-var PostService_delPost_args = function(args) {
-  this.title = null;
+var UserService_logout_args = function(args) {
+  this.username = null;
   if (args) {
-    if (args.title !== undefined && args.title !== null) {
-      this.title = args.title;
+    if (args.username !== undefined && args.username !== null) {
+      this.username = args.username;
     }
   }
 };
-PostService_delPost_args.prototype = {};
-PostService_delPost_args.prototype.read = function(input) {
+UserService_logout_args.prototype = {};
+UserService_logout_args.prototype.read = function(input) {
   input.readStructBegin();
   while (true)
   {
@@ -254,7 +283,7 @@ PostService_delPost_args.prototype.read = function(input) {
     {
       case 1:
       if (ftype == Thrift.Type.STRING) {
-        this.title = input.readString();
+        this.username = input.readString();
       } else {
         input.skip(ftype);
       }
@@ -271,11 +300,11 @@ PostService_delPost_args.prototype.read = function(input) {
   return;
 };
 
-PostService_delPost_args.prototype.write = function(output) {
-  output.writeStructBegin('PostService_delPost_args');
-  if (this.title !== null && this.title !== undefined) {
-    output.writeFieldBegin('title', Thrift.Type.STRING, 1);
-    output.writeString(this.title);
+UserService_logout_args.prototype.write = function(output) {
+  output.writeStructBegin('UserService_logout_args');
+  if (this.username !== null && this.username !== undefined) {
+    output.writeFieldBegin('username', Thrift.Type.STRING, 1);
+    output.writeString(this.username);
     output.writeFieldEnd();
   }
   output.writeFieldStop();
@@ -283,10 +312,10 @@ PostService_delPost_args.prototype.write = function(output) {
   return;
 };
 
-var PostService_delPost_result = function(args) {
+var UserService_logout_result = function(args) {
 };
-PostService_delPost_result.prototype = {};
-PostService_delPost_result.prototype.read = function(input) {
+UserService_logout_result.prototype = {};
+UserService_logout_result.prototype.read = function(input) {
   input.readStructBegin();
   while (true)
   {
@@ -304,23 +333,23 @@ PostService_delPost_result.prototype.read = function(input) {
   return;
 };
 
-PostService_delPost_result.prototype.write = function(output) {
-  output.writeStructBegin('PostService_delPost_result');
+UserService_logout_result.prototype.write = function(output) {
+  output.writeStructBegin('UserService_logout_result');
   output.writeFieldStop();
   output.writeStructEnd();
   return;
 };
 
-var PostServiceClient = exports.Client = function(output, pClass) {
+var UserServiceClient = exports.Client = function(output, pClass) {
     this.output = output;
     this.pClass = pClass;
     this._seqid = 0;
     this._reqs = {};
 };
-PostServiceClient.prototype = {};
-PostServiceClient.prototype.seqid = function() { return this._seqid; };
-PostServiceClient.prototype.new_seqid = function() { return this._seqid += 1; };
-PostServiceClient.prototype.addPost = function(title, content, tag, callback) {
+UserServiceClient.prototype = {};
+UserServiceClient.prototype.seqid = function() { return this._seqid; };
+UserServiceClient.prototype.new_seqid = function() { return this._seqid += 1; };
+UserServiceClient.prototype.registUser = function(username, password, sex, age, callback) {
   this._seqid = this.new_seqid();
   if (callback === undefined) {
     var _defer = Q.defer();
@@ -331,29 +360,30 @@ PostServiceClient.prototype.addPost = function(title, content, tag, callback) {
         _defer.resolve(result);
       }
     };
-    this.send_addPost(title, content, tag);
+    this.send_registUser(username, password, sex, age);
     return _defer.promise;
   } else {
     this._reqs[this.seqid()] = callback;
-    this.send_addPost(title, content, tag);
+    this.send_registUser(username, password, sex, age);
   }
 };
 
-PostServiceClient.prototype.send_addPost = function(title, content, tag) {
+UserServiceClient.prototype.send_registUser = function(username, password, sex, age) {
   var output = new this.pClass(this.output);
-  output.writeMessageBegin('addPost', Thrift.MessageType.CALL, this.seqid());
+  output.writeMessageBegin('registUser', Thrift.MessageType.CALL, this.seqid());
   var params = {
-    title: title,
-    content: content,
-    tag: tag
+    username: username,
+    password: password,
+    sex: sex,
+    age: age
   };
-  var args = new PostService_addPost_args(params);
+  var args = new UserService_registUser_args(params);
   args.write(output);
   output.writeMessageEnd();
   return this.output.flush();
 };
 
-PostServiceClient.prototype.recv_addPost = function(input,mtype,rseqid) {
+UserServiceClient.prototype.recv_registUser = function(input,mtype,rseqid) {
   var callback = this._reqs[rseqid] || function() {};
   delete this._reqs[rseqid];
   if (mtype == Thrift.MessageType.EXCEPTION) {
@@ -362,13 +392,13 @@ PostServiceClient.prototype.recv_addPost = function(input,mtype,rseqid) {
     input.readMessageEnd();
     return callback(x);
   }
-  var result = new PostService_addPost_result();
+  var result = new UserService_registUser_result();
   result.read(input);
   input.readMessageEnd();
 
   callback(null);
 };
-PostServiceClient.prototype.getPost = function(title, callback) {
+UserServiceClient.prototype.login = function(username, password, callback) {
   this._seqid = this.new_seqid();
   if (callback === undefined) {
     var _defer = Q.defer();
@@ -379,27 +409,28 @@ PostServiceClient.prototype.getPost = function(title, callback) {
         _defer.resolve(result);
       }
     };
-    this.send_getPost(title);
+    this.send_login(username, password);
     return _defer.promise;
   } else {
     this._reqs[this.seqid()] = callback;
-    this.send_getPost(title);
+    this.send_login(username, password);
   }
 };
 
-PostServiceClient.prototype.send_getPost = function(title) {
+UserServiceClient.prototype.send_login = function(username, password) {
   var output = new this.pClass(this.output);
-  output.writeMessageBegin('getPost', Thrift.MessageType.CALL, this.seqid());
+  output.writeMessageBegin('login', Thrift.MessageType.CALL, this.seqid());
   var params = {
-    title: title
+    username: username,
+    password: password
   };
-  var args = new PostService_getPost_args(params);
+  var args = new UserService_login_args(params);
   args.write(output);
   output.writeMessageEnd();
   return this.output.flush();
 };
 
-PostServiceClient.prototype.recv_getPost = function(input,mtype,rseqid) {
+UserServiceClient.prototype.recv_login = function(input,mtype,rseqid) {
   var callback = this._reqs[rseqid] || function() {};
   delete this._reqs[rseqid];
   if (mtype == Thrift.MessageType.EXCEPTION) {
@@ -408,16 +439,16 @@ PostServiceClient.prototype.recv_getPost = function(input,mtype,rseqid) {
     input.readMessageEnd();
     return callback(x);
   }
-  var result = new PostService_getPost_result();
+  var result = new UserService_login_result();
   result.read(input);
   input.readMessageEnd();
 
   if (null !== result.success) {
     return callback(null, result.success);
   }
-  return callback('getPost failed: unknown result');
+  return callback('login failed: unknown result');
 };
-PostServiceClient.prototype.delPost = function(title, callback) {
+UserServiceClient.prototype.logout = function(username, callback) {
   this._seqid = this.new_seqid();
   if (callback === undefined) {
     var _defer = Q.defer();
@@ -428,27 +459,27 @@ PostServiceClient.prototype.delPost = function(title, callback) {
         _defer.resolve(result);
       }
     };
-    this.send_delPost(title);
+    this.send_logout(username);
     return _defer.promise;
   } else {
     this._reqs[this.seqid()] = callback;
-    this.send_delPost(title);
+    this.send_logout(username);
   }
 };
 
-PostServiceClient.prototype.send_delPost = function(title) {
+UserServiceClient.prototype.send_logout = function(username) {
   var output = new this.pClass(this.output);
-  output.writeMessageBegin('delPost', Thrift.MessageType.CALL, this.seqid());
+  output.writeMessageBegin('logout', Thrift.MessageType.CALL, this.seqid());
   var params = {
-    title: title
+    username: username
   };
-  var args = new PostService_delPost_args(params);
+  var args = new UserService_logout_args(params);
   args.write(output);
   output.writeMessageEnd();
   return this.output.flush();
 };
 
-PostServiceClient.prototype.recv_delPost = function(input,mtype,rseqid) {
+UserServiceClient.prototype.recv_logout = function(input,mtype,rseqid) {
   var callback = this._reqs[rseqid] || function() {};
   delete this._reqs[rseqid];
   if (mtype == Thrift.MessageType.EXCEPTION) {
@@ -457,17 +488,17 @@ PostServiceClient.prototype.recv_delPost = function(input,mtype,rseqid) {
     input.readMessageEnd();
     return callback(x);
   }
-  var result = new PostService_delPost_result();
+  var result = new UserService_logout_result();
   result.read(input);
   input.readMessageEnd();
 
   callback(null);
 };
-var PostServiceProcessor = exports.Processor = function(handler) {
+var UserServiceProcessor = exports.Processor = function(handler) {
   this._handler = handler;
 }
 ;
-PostServiceProcessor.prototype.process = function(input, output) {
+UserServiceProcessor.prototype.process = function(input, output) {
   var r = input.readMessageBegin();
   if (this['process_' + r.fname]) {
     return this['process_' + r.fname].call(this, r.rseqid, input, output);
@@ -482,35 +513,35 @@ PostServiceProcessor.prototype.process = function(input, output) {
   }
 }
 ;
-PostServiceProcessor.prototype.process_addPost = function(seqid, input, output) {
-  var args = new PostService_addPost_args();
+UserServiceProcessor.prototype.process_registUser = function(seqid, input, output) {
+  var args = new UserService_registUser_args();
   args.read(input);
   input.readMessageEnd();
-  if (this._handler.addPost.length === 3) {
-    Q.fcall(this._handler.addPost.bind(this._handler), args.title, args.content, args.tag)
+  if (this._handler.registUser.length === 4) {
+    Q.fcall(this._handler.registUser.bind(this._handler), args.username, args.password, args.sex, args.age)
       .then(function(result) {
-        var result_obj = new PostService_addPost_result({success: result});
-        output.writeMessageBegin("addPost", Thrift.MessageType.REPLY, seqid);
+        var result_obj = new UserService_registUser_result({success: result});
+        output.writeMessageBegin("registUser", Thrift.MessageType.REPLY, seqid);
         result_obj.write(output);
         output.writeMessageEnd();
         output.flush();
       }, function (err) {
         var result;
         result = new Thrift.TApplicationException(Thrift.TApplicationExceptionType.UNKNOWN, err.message);
-        output.writeMessageBegin("addPost", Thrift.MessageType.EXCEPTION, seqid);
+        output.writeMessageBegin("registUser", Thrift.MessageType.EXCEPTION, seqid);
         result.write(output);
         output.writeMessageEnd();
         output.flush();
       });
   } else {
-    this._handler.addPost(args.title, args.content, args.tag, function (err, result) {
+    this._handler.registUser(args.username, args.password, args.sex, args.age, function (err, result) {
       var result_obj;
       if ((err === null || typeof err === 'undefined')) {
-        result_obj = new PostService_addPost_result((err !== null || typeof err === 'undefined') ? err : {success: result});
-        output.writeMessageBegin("addPost", Thrift.MessageType.REPLY, seqid);
+        result_obj = new UserService_registUser_result((err !== null || typeof err === 'undefined') ? err : {success: result});
+        output.writeMessageBegin("registUser", Thrift.MessageType.REPLY, seqid);
       } else {
         result_obj = new Thrift.TApplicationException(Thrift.TApplicationExceptionType.UNKNOWN, err.message);
-        output.writeMessageBegin("addPost", Thrift.MessageType.EXCEPTION, seqid);
+        output.writeMessageBegin("registUser", Thrift.MessageType.EXCEPTION, seqid);
       }
       result_obj.write(output);
       output.writeMessageEnd();
@@ -518,35 +549,35 @@ PostServiceProcessor.prototype.process_addPost = function(seqid, input, output) 
     });
   }
 };
-PostServiceProcessor.prototype.process_getPost = function(seqid, input, output) {
-  var args = new PostService_getPost_args();
+UserServiceProcessor.prototype.process_login = function(seqid, input, output) {
+  var args = new UserService_login_args();
   args.read(input);
   input.readMessageEnd();
-  if (this._handler.getPost.length === 1) {
-    Q.fcall(this._handler.getPost.bind(this._handler), args.title)
+  if (this._handler.login.length === 2) {
+    Q.fcall(this._handler.login.bind(this._handler), args.username, args.password)
       .then(function(result) {
-        var result_obj = new PostService_getPost_result({success: result});
-        output.writeMessageBegin("getPost", Thrift.MessageType.REPLY, seqid);
+        var result_obj = new UserService_login_result({success: result});
+        output.writeMessageBegin("login", Thrift.MessageType.REPLY, seqid);
         result_obj.write(output);
         output.writeMessageEnd();
         output.flush();
       }, function (err) {
         var result;
         result = new Thrift.TApplicationException(Thrift.TApplicationExceptionType.UNKNOWN, err.message);
-        output.writeMessageBegin("getPost", Thrift.MessageType.EXCEPTION, seqid);
+        output.writeMessageBegin("login", Thrift.MessageType.EXCEPTION, seqid);
         result.write(output);
         output.writeMessageEnd();
         output.flush();
       });
   } else {
-    this._handler.getPost(args.title, function (err, result) {
+    this._handler.login(args.username, args.password, function (err, result) {
       var result_obj;
       if ((err === null || typeof err === 'undefined')) {
-        result_obj = new PostService_getPost_result((err !== null || typeof err === 'undefined') ? err : {success: result});
-        output.writeMessageBegin("getPost", Thrift.MessageType.REPLY, seqid);
+        result_obj = new UserService_login_result((err !== null || typeof err === 'undefined') ? err : {success: result});
+        output.writeMessageBegin("login", Thrift.MessageType.REPLY, seqid);
       } else {
         result_obj = new Thrift.TApplicationException(Thrift.TApplicationExceptionType.UNKNOWN, err.message);
-        output.writeMessageBegin("getPost", Thrift.MessageType.EXCEPTION, seqid);
+        output.writeMessageBegin("login", Thrift.MessageType.EXCEPTION, seqid);
       }
       result_obj.write(output);
       output.writeMessageEnd();
@@ -554,35 +585,35 @@ PostServiceProcessor.prototype.process_getPost = function(seqid, input, output) 
     });
   }
 };
-PostServiceProcessor.prototype.process_delPost = function(seqid, input, output) {
-  var args = new PostService_delPost_args();
+UserServiceProcessor.prototype.process_logout = function(seqid, input, output) {
+  var args = new UserService_logout_args();
   args.read(input);
   input.readMessageEnd();
-  if (this._handler.delPost.length === 1) {
-    Q.fcall(this._handler.delPost.bind(this._handler), args.title)
+  if (this._handler.logout.length === 1) {
+    Q.fcall(this._handler.logout.bind(this._handler), args.username)
       .then(function(result) {
-        var result_obj = new PostService_delPost_result({success: result});
-        output.writeMessageBegin("delPost", Thrift.MessageType.REPLY, seqid);
+        var result_obj = new UserService_logout_result({success: result});
+        output.writeMessageBegin("logout", Thrift.MessageType.REPLY, seqid);
         result_obj.write(output);
         output.writeMessageEnd();
         output.flush();
       }, function (err) {
         var result;
         result = new Thrift.TApplicationException(Thrift.TApplicationExceptionType.UNKNOWN, err.message);
-        output.writeMessageBegin("delPost", Thrift.MessageType.EXCEPTION, seqid);
+        output.writeMessageBegin("logout", Thrift.MessageType.EXCEPTION, seqid);
         result.write(output);
         output.writeMessageEnd();
         output.flush();
       });
   } else {
-    this._handler.delPost(args.title, function (err, result) {
+    this._handler.logout(args.username, function (err, result) {
       var result_obj;
       if ((err === null || typeof err === 'undefined')) {
-        result_obj = new PostService_delPost_result((err !== null || typeof err === 'undefined') ? err : {success: result});
-        output.writeMessageBegin("delPost", Thrift.MessageType.REPLY, seqid);
+        result_obj = new UserService_logout_result((err !== null || typeof err === 'undefined') ? err : {success: result});
+        output.writeMessageBegin("logout", Thrift.MessageType.REPLY, seqid);
       } else {
         result_obj = new Thrift.TApplicationException(Thrift.TApplicationExceptionType.UNKNOWN, err.message);
-        output.writeMessageBegin("delPost", Thrift.MessageType.EXCEPTION, seqid);
+        output.writeMessageBegin("logout", Thrift.MessageType.EXCEPTION, seqid);
       }
       result_obj.write(output);
       output.writeMessageEnd();

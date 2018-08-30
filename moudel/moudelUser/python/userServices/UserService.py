@@ -19,10 +19,13 @@ all_structs = []
 
 
 class Iface(object):
-    def registUser(self, user):
+    def registUser(self, username, password, sex, age):
         """
         Parameters:
-         - user
+         - username
+         - password
+         - sex
+         - age
         """
         pass
 
@@ -49,18 +52,24 @@ class Client(Iface):
             self._oprot = oprot
         self._seqid = 0
 
-    def registUser(self, user):
+    def registUser(self, username, password, sex, age):
         """
         Parameters:
-         - user
+         - username
+         - password
+         - sex
+         - age
         """
-        self.send_registUser(user)
+        self.send_registUser(username, password, sex, age)
         self.recv_registUser()
 
-    def send_registUser(self, user):
+    def send_registUser(self, username, password, sex, age):
         self._oprot.writeMessageBegin('registUser', TMessageType.CALL, self._seqid)
         args = registUser_args()
-        args.user = user
+        args.username = username
+        args.password = password
+        args.sex = sex
+        args.age = age
         args.write(self._oprot)
         self._oprot.writeMessageEnd()
         self._oprot.trans.flush()
@@ -170,7 +179,7 @@ class Processor(Iface, TProcessor):
         iprot.readMessageEnd()
         result = registUser_result()
         try:
-            self._handler.registUser(args.user)
+            self._handler.registUser(args.username, args.password, args.sex, args.age)
             msg_type = TMessageType.REPLY
         except TTransport.TTransportException:
             raise
@@ -239,12 +248,18 @@ class Processor(Iface, TProcessor):
 class registUser_args(object):
     """
     Attributes:
-     - user
+     - username
+     - password
+     - sex
+     - age
     """
 
 
-    def __init__(self, user=None,):
-        self.user = user
+    def __init__(self, username=None, password=None, sex=None, age=None,):
+        self.username = username
+        self.password = password
+        self.sex = sex
+        self.age = age
 
     def read(self, iprot):
         if iprot._fast_decode is not None and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None:
@@ -256,9 +271,23 @@ class registUser_args(object):
             if ftype == TType.STOP:
                 break
             if fid == 1:
-                if ftype == TType.STRUCT:
-                    self.user = User()
-                    self.user.read(iprot)
+                if ftype == TType.STRING:
+                    self.username = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 2:
+                if ftype == TType.STRING:
+                    self.password = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 3:
+                if ftype == TType.STRING:
+                    self.sex = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 4:
+                if ftype == TType.STRING:
+                    self.age = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
                 else:
                     iprot.skip(ftype)
             else:
@@ -271,9 +300,21 @@ class registUser_args(object):
             oprot.trans.write(oprot._fast_encode(self, [self.__class__, self.thrift_spec]))
             return
         oprot.writeStructBegin('registUser_args')
-        if self.user is not None:
-            oprot.writeFieldBegin('user', TType.STRUCT, 1)
-            self.user.write(oprot)
+        if self.username is not None:
+            oprot.writeFieldBegin('username', TType.STRING, 1)
+            oprot.writeString(self.username.encode('utf-8') if sys.version_info[0] == 2 else self.username)
+            oprot.writeFieldEnd()
+        if self.password is not None:
+            oprot.writeFieldBegin('password', TType.STRING, 2)
+            oprot.writeString(self.password.encode('utf-8') if sys.version_info[0] == 2 else self.password)
+            oprot.writeFieldEnd()
+        if self.sex is not None:
+            oprot.writeFieldBegin('sex', TType.STRING, 3)
+            oprot.writeString(self.sex.encode('utf-8') if sys.version_info[0] == 2 else self.sex)
+            oprot.writeFieldEnd()
+        if self.age is not None:
+            oprot.writeFieldBegin('age', TType.STRING, 4)
+            oprot.writeString(self.age.encode('utf-8') if sys.version_info[0] == 2 else self.age)
             oprot.writeFieldEnd()
         oprot.writeFieldStop()
         oprot.writeStructEnd()
@@ -294,7 +335,10 @@ class registUser_args(object):
 all_structs.append(registUser_args)
 registUser_args.thrift_spec = (
     None,  # 0
-    (1, TType.STRUCT, 'user', [User, None], None, ),  # 1
+    (1, TType.STRING, 'username', 'UTF8', None, ),  # 1
+    (2, TType.STRING, 'password', 'UTF8', None, ),  # 2
+    (3, TType.STRING, 'sex', 'UTF8', None, ),  # 3
+    (4, TType.STRING, 'age', 'UTF8', None, ),  # 4
 )
 
 

@@ -24,7 +24,7 @@ if len(sys.argv) <= 1 or sys.argv[1] == '--help':
     print('Usage: ' + sys.argv[0] + ' [-h host[:port]] [-u url] [-f[ramed]] [-s[sl]] [-novalidate] [-ca_certs certs] [-keyfile keyfile] [-certfile certfile] function [arg1 [arg2...]]')
     print('')
     print('Functions:')
-    print('  void registUser(User user)')
+    print('  void registUser(string username, string password, string sex, string age)')
     print('  User login(string username, string password)')
     print('  void logout(string username)')
     print('')
@@ -107,10 +107,10 @@ client = UserService.Client(protocol)
 transport.open()
 
 if cmd == 'registUser':
-    if len(args) != 1:
-        print('registUser requires 1 args')
+    if len(args) != 4:
+        print('registUser requires 4 args')
         sys.exit(1)
-    pp.pprint(client.registUser(eval(args[0]),))
+    pp.pprint(client.registUser(args[0], args[1], args[2], args[3],))
 
 elif cmd == 'login':
     if len(args) != 2:
