@@ -1,4 +1,4 @@
-version: '2'
+version: '3.0'
 services:
   # consul server，对外暴露的ui接口为8500，只有在2台consul服务器的情况下集群才起作用
   consulserver:
@@ -10,8 +10,8 @@ services:
       - "8500:8500"
       - "53"
     command: -server -ui-dir /ui -data-dir /tmp/consul --bootstrap-expect=2
-    networks:
-      - app
+#    networks:
+#      - app
 
   # consul server1在consul server服务起来后，加入集群中
   consulserver1:
@@ -25,8 +25,8 @@ services:
       - "8500"
       - "53"
     command: -server -data-dir /tmp/consul -join consulserver
-    networks:
-      - app
+#    networks:
+#      - app
   # consul server2在consul server服务起来后，加入集群中
   consulserver2:
     image: progrium/consul:latest
@@ -39,8 +39,8 @@ services:
       - "8500"
       - "53"
     command: -server -data-dir /tmp/consul -join consulserver
-    networks:
-      - app
+#    networks:
+#      - app
   # 监听容器中暴露的端口，一定有新的端口，注册到注册中心
   registrator:
     image: gliderlabs/registrator:master
@@ -50,8 +50,8 @@ services:
     volumes:
       - "/var/run/docker.sock:/tmp/docker.sock"
     command: -internal consul://consulserver:8500
-    networks:
-      - app
+#    networks:
+#      - app
   web-nodejs:
     build: ./webNodejs
     image: webapp:latest
@@ -61,51 +61,95 @@ services:
       - "3000"
     environment:
       SERVICE_3000_NAME: service-web
-    networks:
-      - app
+#    networks:
+#      - app
 
-  web-py:
-    build: ./webPy
-    image: webpy:latest
+#  web-py:
+#    build: ./webPy
+#    image: webpy:latest
 #    depends_on:
 #      - "consulserver"
+#    ports:
+#      - "5000"
+#    environment:
+#      SERVICE_5000_NAME: service-web-py
+#    volumes:
+#      - ./webPy:/usr/local/work
+#    networks:
+#      - app
+#    command: bash -c "pip install -r requirements.txt && python app.py"
+
+  post-services-js:
+    build: ./moudel/moudelPost
+    image: webjs2:latest
+    volumes:
+      - ./moudel/moudelPost:/usr/local/work
+    depends_on:
+      - "consulserver"
+    ports:
+      - "3000"
+    environment:
+      SERVICE_3000_NAME: post-services-js
+#    network_mode: "host"
+#    networks:
+#      - app
+
+  user-services-py:
+    build: ./moudel/moudelUser
+    image: webpy2:latest
+#    hostname: userService
+    depends_on:
+      - "consulserver"
     ports:
       - "5000"
     environment:
-      SERVICE_5000_NAME: service-web-py
+      SERVICE_5000_NAME: user-service-py
     volumes:
-      - ./webPy:/usr/local/work
-    networks:
-      - app
-    command: bash -c "pip install -r requirements.txt && python app.py"
+      - ./moudel/moudelUser:/usr/local/work
+#    network_mode: "host"
+#    networks:
+#      - app
+#    command: bash -c "pip install -r requirements.txt && python server.py"
 
-  gateway-py:
-    build: ./gateWayPy
-    image: gatewaypy:latest
-#    depends_on:
-#      - "consulserver"
-    ports:
-      - "5000:5000"
-    environment:
-      SERVICE_5000_NAME: service-gateway-py
-    volumes:
-      - ./gateWayPy:/usr/local/work
-    networks:
-      - app
-    command: bash -c "pip install -r requirements.txt && python app.py"
-
+#  gateway-py:
+#    build: ./gateWayPy
+#    image: gatewaypy:latest
+##    depends_on:
+##      - "consulserver"
+#    ports:
+#      - "5000:5000"
+#    environment:
+#      SERVICE_5000_NAME: service-gateway-py
+#    volumes:
+#      - ./gateWayPy:/usr/local/work
+#    networks:
+#      - app
+#    command: bash -c "pip install -r requirements.txt && python app.py"
+#
+#
+#
   gateway-nodejs:
     build: ./gateWayJs
     image: gatewayjs:latest
+    links:
+      - user-services-py
+    volumes:
+      - ./gateWayJs:/usr/local/work
     ports:
       - "3000:3000"
     environment:
       SERVICE_3000_NAME: service-gateway-js
 
-    networks:
-      - app
+#    networks:
+#      - app
 
-networks:
-  app:
-    driver: bridge
+
+
+#networks:
+#  app:
+#    driver: "bridge"
+
+#networks:
+#  app2:
+#    driver: "host"
 

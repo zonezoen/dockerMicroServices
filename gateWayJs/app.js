@@ -32,5 +32,3 @@ workerProcess.on('message', msg => {
         serviceLocalStorage.setItem(msg.name, msg.data);
     }
 });
-
-[{"Node":"consulserver","Address":"172.22.0.3","ServiceID":"registrator:dockermicroservices_web-nodejs_1:3000","ServiceName":"service-web","ServiceTags":null,"ServiceAddress":"172.22.0.7","ServicePortNode":"consulserver","Address":"172.22.0.3","ServiceID":"registrator:dockermicroservices_web-nodejs_3:3000","ServiceName":"service-web","ServiceTags":null,"ServiceAddress":"172.22.0.7","ServicePort":3000},{"Node":"consulserver","Address":"172.22.0.3","ServiceID":"registrator:dockermicroservices_web-nodejs_2:3000","ServiceName":"service-web","ServiceTags":null,"ServiceAddress":"172.22.0.8","ServicePort":3000}]
