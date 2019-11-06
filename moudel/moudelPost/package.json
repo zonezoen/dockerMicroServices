@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "mysql2": "^1.6.1",
-    "sequelize": "^4.38.0",
+    "sequelize": "^5.15.1",
     "thrift": "^0.11.0"
   }
 }
